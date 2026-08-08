@@ -1,4 +1,4 @@
-import type { Scenario, MetricTick, ServiceNode } from "../types";
+import type { Scenario, MetricTick, ServiceNode } from "../types.js";
 
 const MAX_CONNECTIONS = 100;
 const TIME_TO_BROKEN = 8; // seconds — compressed for a live demo

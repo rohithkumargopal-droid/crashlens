@@ -1,8 +1,8 @@
 import { v4 as uuid } from "uuid";
-import { pool, query } from "../lib/db";
-import { redis, keys } from "../lib/redis";
-import { dbOutageScenario } from "./scenarios/dbOutage";
-import type { Scenario } from "./types";
+import { pool, query } from "../lib/db.js";
+import { redis, keys } from "../lib/redis.js";
+import { dbOutageScenario } from "./scenarios/dbOutage.js";
+import type { Scenario } from "./types.js";
 
 const SCENARIOS: Record<string, Scenario> = {
   "db-outage": dbOutageScenario,
