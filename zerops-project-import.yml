@@ -1,0 +1,33 @@
+# Import this at https://app.zerops.io -> New Project -> Import YAML
+# Provisions: Postgres, Redis (Valkey), the API, and the web frontend.
+# After import, connect each service's GitHub subdirectory (api/, web/) as its
+# deploy source, or push with `zcli push` from within api/ and web/.
+
+project:
+  name: crashlens
+
+services:
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+
+  - hostname: cache
+    type: valkey@7.2
+    mode: NON_HA
+
+  - hostname: api
+    type: nodejs@22
+    buildFromGit: https://github.com/YOUR_USERNAME/crashlens
+    enableSubdomainAccess: true
+    envVariables:
+      DATABASE_URL: postgresql://${db_user}:${db_password}@${db_hostname}:5432/${db_dbName}
+      REDIS_URL: redis://${cache_hostname}:6379
+      ANTHROPIC_API_KEY: ""
+      ANTHROPIC_MODEL: claude-sonnet-5
+
+  - hostname: web
+    type: nodejs@22
+    buildFromGit: https://github.com/YOUR_USERNAME/crashlens
+    enableSubdomainAccess: true
+    envVariables:
+      NEXT_PUBLIC_API_BASE: https://${api_zeropsSubdomain}

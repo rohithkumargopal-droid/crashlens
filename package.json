@@ -1,0 +1,11 @@
+{
+  "name": "crashlens",
+  "private": true,
+  "workspaces": ["api", "web"],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=api",
+    "dev:web": "npm run dev --workspace=web",
+    "migrate": "npm run migrate --workspace=api",
+    "seed": "npm run seed --workspace=api"
+  }
+}

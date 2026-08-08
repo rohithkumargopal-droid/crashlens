@@ -1,0 +1,23 @@
+zerops:
+  - setup: api
+    build:
+      base: nodejs@22
+      buildCommands:
+        - npm install
+        - npm run build
+      deployFiles:
+        - dist
+        - package.json
+        - package-lock.json
+        - src/lib/schema.sql
+    run:
+      base: nodejs@22
+      ports:
+        - port: 3001
+          httpSupport: true
+      envVariables:
+        PORT: 3001
+      start: npm run start
+      initCommands:
+        - npm run migrate
+        - npm run seed
