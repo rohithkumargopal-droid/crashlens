@@ -8,7 +8,6 @@ zerops:
       deployFiles:
         - api/dist
         - api/package.json
-        - api/package-lock.json
         - api/src/lib/schema.sql
     run:
       base: nodejs@22
