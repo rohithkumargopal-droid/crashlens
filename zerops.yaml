@@ -9,14 +9,18 @@ zerops:
         - api/dist
         - api/package.json
         - api/src/lib/schema.sql
+
     run:
       base: nodejs@22
       ports:
         - port: 3001
           httpSupport: true
+
       envVariables:
         PORT: "3001"
+
       start: cd api && npm run start
+
       initCommands:
-        - cd api && npm run migrate
-        - cd api && npm run seed
+        - node api/dist/lib/migrate.js
+        - node api/dist/lib/seed.js
