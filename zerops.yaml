@@ -1,17 +1,22 @@
 zerops:
   - setup: api
+
     build:
       base: nodejs@22
+
       buildCommands:
         - cd api && npm install
         - cd api && npm run build
+
       deployFiles:
         - api/dist
         - api/package.json
+        - api/package-lock.json
         - api/src/lib/schema.sql
 
     run:
       base: nodejs@22
+
       ports:
         - port: 3001
           httpSupport: true
@@ -19,8 +24,9 @@ zerops:
       envVariables:
         PORT: "3001"
 
-      start: cd api && npm run start
-
       initCommands:
+        - cd api && npm install --omit=dev
         - node api/dist/lib/migrate.js
         - node api/dist/lib/seed.js
+
+      start: cd api && npm run start
