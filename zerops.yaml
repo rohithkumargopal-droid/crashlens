@@ -29,4 +29,4 @@ zerops:
         - node api/dist/lib/migrate.js
         - node api/dist/lib/seed.js
 
-      start: cd api && npm run start
+      start: node api/dist/index.js
