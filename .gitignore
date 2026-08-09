@@ -1,0 +1,7 @@
+node_modules/
+api/node_modules/
+api/dist/
+.env
+.env.*
+!.env.example
+package-lock.json
