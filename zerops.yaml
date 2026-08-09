@@ -20,9 +20,10 @@ zerops:
         - port: 3001
           httpSupport: true
 
-      envVariables:
-        PORT: "3001"
-        DATABASE_URL: ${db_connectionString}
+     envVariables:
+ 	DATABASE_URL: ${db_connectionString}
+  	REDIS_URL: ${cache_connectionString}
+ 	 PORT: "3001"
 
       initCommands:
         - cd api && npm install --omit=dev
