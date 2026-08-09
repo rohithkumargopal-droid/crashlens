@@ -10,6 +10,7 @@ zerops:
 
       deployFiles:
         - api/dist
+        - api/node_modules
         - api/package.json
         - api/package-lock.json
 
