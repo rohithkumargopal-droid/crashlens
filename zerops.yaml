@@ -10,7 +10,6 @@ zerops:
 
       deployFiles:
         - api/dist
-        - api/node_modules
         - api/package.json
         - api/package-lock.json
 
@@ -25,5 +24,8 @@ zerops:
         DATABASE_URL: ${db_connectionString}
         REDIS_URL: ${cache_connectionString}
         PORT: "3001"
+
+      initCommands:
+        - cd api && npm install --omit=dev
 
       start: node api/dist/index.js
