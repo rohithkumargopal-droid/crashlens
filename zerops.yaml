@@ -8,10 +8,10 @@ zerops:
         - cd api && npm install
         - cd api && npm run build
 
-      deployFiles:
-        - api/dist
-        - api/package.json
-        - api/package-lock.json
+    deployFiles:
+      - api/dist
+      - api/package.json
+      - api/package-lock.json
 
     run:
       base: nodejs@22
@@ -20,10 +20,10 @@ zerops:
         - port: 3001
           httpSupport: true
 
-     envVariables:
- 	DATABASE_URL: ${db_connectionString}
-  	REDIS_URL: ${cache_connectionString}
- 	 PORT: "3001"
+      envVariables:
+        DATABASE_URL: ${db_connectionString}
+        REDIS_URL: ${cache_connectionString}
+        PORT: "3001"
 
       initCommands:
         - cd api && npm install --omit=dev
