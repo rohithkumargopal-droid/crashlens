@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
     "start": "node dist/index.js",
     "migrate": "tsx src/lib/migrate.ts",
     "seed": "tsx src/lib/seed.ts"
@@ -28,3 +28,4 @@
     "typescript": "^5.6.2"
   }
 }
+
