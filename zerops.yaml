@@ -8,10 +8,10 @@ zerops:
         - cd api && npm install
         - cd api && npm run build
 
-    deployFiles:
-      - api/dist
-      - api/package.json
-      - api/package-lock.json
+      deployFiles:
+        - api/dist
+        - api/package.json
+        - api/package-lock.json
 
     run:
       base: nodejs@22
@@ -24,10 +24,5 @@ zerops:
         DATABASE_URL: ${db_connectionString}
         REDIS_URL: ${cache_connectionString}
         PORT: "3001"
-
-      initCommands:
-        - cd api && npm install --omit=dev
-        - node api/dist/lib/migrate.js
-        - node api/dist/lib/seed.js
 
       start: node api/dist/index.js
