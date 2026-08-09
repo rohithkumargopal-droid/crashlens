@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { v4 as uuid } from "uuid";
+
 import {
   startIncident,
   getIncidentSummary,
@@ -10,10 +11,11 @@ import {
   submitFix,
   getReplay,
   listChallenges,
-} from "../incidents/engine";
-import { generatePostmortem } from "../lib/ai";
-import { query } from "../lib/db";
-import { redis, keys } from "../lib/redis";
+} from "../incidents/engine.js";
+
+import { generatePostmortem } from "../lib/ai.js";
+import { query } from "../lib/db.js";
+import { redis, keys } from "../lib/redis.js";
 
 export const incidentsRouter = Router();
 

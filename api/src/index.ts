@@ -1,8 +1,8 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { incidentsRouter } from "./routes/incidents";
-import { leaderboardRouter } from "./routes/leaderboard";
+import { incidentsRouter } from "./routes/incidents.js";
+import { leaderboardRouter } from "./routes/leaderboard.js";
 
 const app = express();
 app.use(cors());

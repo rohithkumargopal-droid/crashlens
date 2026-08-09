@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { redis, keys } from "../lib/redis";
-import { query } from "../lib/db";
+import { redis, keys } from "../lib/redis.js";
+import { query } from "../lib/db.js";
 
 export const leaderboardRouter = Router();
 
